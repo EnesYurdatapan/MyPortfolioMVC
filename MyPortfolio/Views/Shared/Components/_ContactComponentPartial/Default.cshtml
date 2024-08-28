@@ -1,0 +1,76 @@
+﻿@model Message
+<section id="contact" class="s-contact target-section">
+
+    <div class="overlay"></div>
+
+    <div class="row narrow section-intro">
+        <div class="col-full">
+            <h3>Contact</h3>
+            <h1>Say Hello</h1>
+
+            <p class="lead">If you want to contact with me, you can send me a message below or directly text me to my gmail.</p>
+        </div>
+    </div>
+
+    <div class="row contact__main">
+        <div class="col-eight tab-full contact__form">
+            <form name="contactForm" id="contactForm" asp-controller="Message" asp-action="CreateMessage" method="post">
+                <fieldset>
+
+                    <div class="form-field">
+                        <input type="text" placeholder="Name" asp-for="NameSurname" minlength="2" required="" aria-required="true" class="full-width">
+                        @* <input type="text" asp-for="NameSurname" class="form-control" placeholder="Name" class="full-width" /> *@
+                    </div>
+                    <div class="form-field">
+                        <input type="text" placeholder="Email" asp-for="Email" minlength="2" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <input type="text" placeholder="Subject" asp-for="Subject" minlength="2" required="" aria-required="true" class="full-width">
+                    </div>
+                    <div class="form-field">
+                        <textarea placeholder="Message" asp-for="MessageDetail" rows="10" cols="50" required="" aria-required="true" class="full-width"></textarea>
+                    </div>
+                    <div class="form-field">
+                        <input type="hidden" asp-for="SendDate" value="@DateTime.UtcNow" />
+                    </div>
+                    <div class="form-field">
+                        <button class="full-width btn--primary">Submit</button>
+                        <div class="submit-loader">
+                            <div class="text-loader">Sending...</div>
+                            <div class="s-loader">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </fieldset>
+            </form>
+
+            <!-- contact-warning -->
+            <div class="message-warning">
+                Something went wrong. Please try again.
+            </div>
+
+            <!-- contact-success -->
+            <div class="message-success">
+                Your message was sent, thank you!<br>
+            </div>
+
+        </div>
+        <div class="col-four tab-full contact__infos">
+            <h4 class="h06">Phone</h4>
+            <p>Mobile: (+90) 537 047 56 68 <br></p>
+
+            <h4 class="h06">Email</h4>
+            <p>enesyurdatapan@gmail.com<br> 
+            </p>
+
+            <h4 class="h06">Address</h4>
+            <p>Bursa,Turkey</p>
+        </div>
+
+    </div>
+
+</section>

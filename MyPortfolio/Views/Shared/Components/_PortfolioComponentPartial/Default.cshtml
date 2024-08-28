@@ -1,0 +1,51 @@
+﻿@model List<Portfolio>
+<section id="works" class="s-works target-section">
+
+    <div class="row narrow section-intro has-bottom-sep">
+        <div class="col-full">
+            <h3>Portfolio</h3>
+            <h1>See My Projects</h1>
+            
+            <p class="lead">If you want to take a look at my projects, i put them below. You can reach my github repo's by clicking the link icon on the images.</p>
+        </div>
+    </div>
+
+    <div class="row masonry-wrap">
+        <div class="masonry">
+        @foreach (var item in Model)
+            {
+                
+            <div class="masonry__brick">
+                <div class="item-folio">
+
+                    <div class="item-folio__thumb" style="margin-left:5px">
+                            <a href="@item.Url" target="_blank">
+                                <img src="@Url.Content(item.ImageUrl)">
+                        </a>
+                   
+                    </div>
+
+                    <div class="item-folio__text">
+                        <h3 class="item-folio__title">
+                            @item.Title
+                        </h3>
+                        <p class="item-folio__cat"> @item.SubTitle
+                        </p>
+                    </div>
+
+                    <a href="@item.Url" class="item-folio__project-link" title="Project link">
+                        <i class="im im-link"></i>
+                    </a>
+
+                    <div class="item-folio__caption">
+                        <p>@item.Description</p>
+                    </div>
+
+                </div> <!-- end item-folio -->
+            </div> 
+            }
+
+        </div>
+    </div> 
+
+</section>

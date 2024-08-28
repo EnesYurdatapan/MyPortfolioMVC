@@ -1,0 +1,50 @@
+﻿@model List<Skill>
+@{
+    ViewData["Title"] = "SkillList";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Skills</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Skills List</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							You can do any process about skills below
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Title</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+
+									<tr>
+										<td>@item.SkillId</td>
+										<td>@item.Title</td>
+										<td><a href="/Skills/DeleteSkill/@item.SkillId" class="btn btn-danger">Delete</a></td>
+									</tr>
+								}
+
+							</tbody>
+						</table>
+						<a href="/Skills/CreateSkill/" class="btn btn-info">Add New Skill</a>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+</div>
+

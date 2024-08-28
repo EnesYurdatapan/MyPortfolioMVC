@@ -1,0 +1,67 @@
+﻿@model List<ToDoList>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Layout/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">To Do Lists</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">To Do Lists</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							You can do any process about to do's below
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Content</th>
+									<th scope="col">Date</th>
+									<th scope="col">State</th>
+									<th scope="col">Delete</th>
+									<th scope="col">Update</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+
+									<tr>
+										<td>@item.ToDoListId</td>
+										<td>@item.Title</td>
+										<td>@item.Date</td>
+										<td>@item.Date</td>
+										@if (item.Status == true)
+										{
+											<td><a href="/ToDoList/ChangeToDoListStatusToFalse/@item.ToDoListId" class="btn btn-dark">Mark it to not to be done</a></td>
+
+										}
+										else
+										{
+											<td><a href="/ToDoList/ChangeToDoListStatusToTrue/@item.ToDoListId" class="btn btn-dark">Mark it to be done</a></td>
+
+										}
+										<td><a href="/ToDoList/DeleteToDoList/@item.ToDoListId" class="btn btn-danger">Delete</a></td>
+										<td><a href="/ToDoList/UpdateToDoList/@item.ToDoListId" class="btn btn-primary">Update</a></td>
+									</tr>
+								}
+
+							</tbody>
+						</table>
+						<a href="/ToDoList/CreateToDoList/" class="btn btn-info">Add New To Do</a>
+					</div>
+				</div>
+
+
+			</div>
+
+		</div>
+	</div>
+</div>
+
